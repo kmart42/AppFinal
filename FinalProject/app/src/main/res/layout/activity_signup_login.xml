@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="10dp"
+    android:backgroundTint="@color/PaleTurquoise"
+    android:outlineAmbientShadowColor="@color/colorAccent"
     android:paddingLeft="30dp"
+    android:padding="@dimen/cardview_compat_inset_shadow"
+    android:background="@color/AliceBlue"
     android:paddingRight="30dp"
     tools:context=".SignupLogin">
 
@@ -32,9 +37,12 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:errorTextColor="@color/Black"
             android:hint="Email">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailText"
+                android:fontFamily="@font/rageitalic"
+                android:textColor="@color/Black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -46,6 +54,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordText"
+                android:fontFamily="@font/rageitalic"
+                android:textColor="@color/colorAccent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -58,18 +68,25 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/displayNameText"
+                android:fontFamily="@font/rageitalic"
+                android:textColor="@color/colorAccent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneNumberLayout"
+            android:fontFamily="@font/rageitalic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="Phone Number">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneNumberText"
+                android:textColor="@color/colorAccent"
+                android:fontFamily="@font/rageitalic"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -77,23 +94,33 @@
         <Button
             android:id="@+id/singupBtn"
             android:text="SIGNUP"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="@drawable/signup_button"
+            android:fontFamily="@font/broadwayd"
+            android:textColor="@color/Aqua"
             android:textSize="20sp"
+            android:onClick="Signup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="Signup">
+            android:layout_height="49dp"
+            android:background="@drawable/buttonshape"
+
+            android:shadowDx="0"
+            android:shadowDy="-5"
+            android:shadowRadius="25" >
 
         </Button>
         <Button
             android:layout_marginTop="5dp"
             android:text="LOGIN"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="@drawable/signup_button"
+            android:fontFamily="@font/broadwayd"
+            android:textColor="@color/HotPink"
             android:textSize="20sp"
+            android:onClick="Login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="Login">
+            android:layout_height="49dp"
+            android:background="@drawable/buttonshape"
+
+            android:shadowDx="0"
+            android:shadowDy="-5"
+            android:shadowRadius="25" >
 
         </Button>
         <LinearLayout
@@ -102,28 +129,37 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
-                android:layout_marginRight="2dp"
-                android:text="Reset Password"
-                android:textColor="@color/colorPrimaryDark"
-                android:background="@drawable/signup_button"
-                android:textSize="12sp"
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:onClick="ResetPassword">
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:background="@color/Black"
+                android:fontFamily="@font/broadwayd"
+                android:onClick="ResetPassword"
+                android:text="Reset   Password"
+                android:textStyle="bold"
+                android:textColor="@color/HotPink"
+                android:textSize="16sp">
 
             </Button>
+
             <Button
                 android:layout_marginLeft="2dp"
                 android:text="Resend Email Verification"
-                android:textColor="@color/colorPrimaryDark"
-                android:background="@drawable/signup_button"
-                android:textSize="12sp"
+                android:textColor="@color/HotPink"
+                android:shadowColor="@color/colorAccent"
+                android:background="@color/Black"
+                android:textSize="14sp"
+                android:fontFamily="@font/broadwayd"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:onClick="sendEmailVerification">
+                android:onClick="sendEmailVerification"
+
+                >
 
             </Button>
         </LinearLayout>

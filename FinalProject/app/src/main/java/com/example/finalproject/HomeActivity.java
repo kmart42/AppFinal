@@ -30,10 +30,13 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
 
+
+        //COLOR SCHEMES
         Window window = HomeActivity.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(HomeActivity.this, R.color.colorAccent));
+        window.setStatusBarColor(ContextCompat.getColor(HomeActivity.this, R.color.HotPink));
+
 
         // Set a Toolbar to replace the ActionBar.
         toolbar =  findViewById(R.id.toolbar);

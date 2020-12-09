@@ -1,6 +1,7 @@
 package com.example.finalproject;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,10 +35,12 @@ public class SignupLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_login);
 
+        //COLOR SCHEMES
         Window window = SignupLogin.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(SignupLogin.this, R.color.colorAccent));
+        window.setStatusBarColor(ContextCompat.getColor(SignupLogin.this, R.color.HotPink));
+
 
 
         email=findViewById(R.id.emailText);
@@ -44,6 +48,18 @@ public class SignupLogin extends AppCompatActivity {
         phonenumber=findViewById(R.id.phoneNumberText);
         displayname=findViewById(R.id.displayNameText);
         signupBtn=findViewById(R.id.singupBtn);
+
+
+        //FONTS
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.broadwayd);
+        Typeface typeface2 = ResourcesCompat.getFont(this, R.font.rageitalic);
+
+        email.setTypeface(typeface);
+        password.setTypeface(typeface);
+        phonenumber.setTypeface(typeface);
+        displayname.setTypeface(typeface);
+        signupBtn.setTypeface(typeface);
+
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
