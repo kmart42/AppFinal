@@ -1,4 +1,4 @@
 package com.example.finalproject;
 
-public class RicTest {
+public class RicTest2 {
 }
