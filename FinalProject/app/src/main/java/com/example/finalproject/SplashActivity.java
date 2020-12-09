@@ -11,24 +11,25 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-/**
- * Created by Sumeet Jain on 23-06-2018.
- */
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity
+{
 
     private ImageView logo;
     private static int splashTimeOut=5000;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash3);
         logo=(ImageView)findViewById(R.id.logo);
 
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 Intent i = new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(i);
                 finish();
