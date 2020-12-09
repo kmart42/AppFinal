@@ -24,6 +24,13 @@ android {
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.android.application'
 dependencies {
+
+    implementation 'com.google.mlkit:image-labeling:17.0.1'
+    implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.4'
+    implementation 'com.google.android.gms:play-services-vision-image-label:18.1.1'
+    implementation 'com.google.android.gms:play-services-mlkit-image-labeling:16.0.1'
+    implementation 'com.google.mlkit:image-labeling:17.0.1'
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'com.google.android.gms:play-services-location:17.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
