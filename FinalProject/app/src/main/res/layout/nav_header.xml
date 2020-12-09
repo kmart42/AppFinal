@@ -16,7 +16,7 @@
         android:backgroundTint="@color/Blue"
         android:textSize="25sp"
         android:textStyle="bold"
-        
+
         android:textColor="@color/DeepPink"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
