@@ -61,12 +61,16 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         public String description;
         public String url;
         public String date;
-        public PostModel(String uid, String description, String url, String date, String key) {
+        public String category;
+        public String confidence;
+        public PostModel(String uid, String description, String url, String date, String key, String confidence, String category) {
             this.uid=uid;
             this.description=description;
             this.url=url;
             this.date=date;
             this.postKey=key;
+            this.category=category;
+            this.confidence=confidence;
         }
     }
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -90,7 +94,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                         dataSnapshot.child("description").getValue().toString(),
                         dataSnapshot.child("url").getValue().toString(),
                         localDateFormat.format(new Date(Long.parseLong(dataSnapshot.child("timestamp").getValue().toString()))) ,
-                        dataSnapshot.getKey());
+                        dataSnapshot.getKey(),
+                        dataSnapshot.child("category").getValue().toString(),
+                        dataSnapshot.child("confidence").getValue().toString());
                 postsList.add(userModel);
                 MyRecyclerAdapter.this.notifyItemInserted(postsList.size()-1);
                 r.scrollToPosition(postsList.size()-1);
@@ -113,7 +119,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                             snapshot.child("description").getValue().toString(),
                             snapshot.child("url").getValue().toString(),
                             localDateFormat.format(new Date(Long.parseLong(snapshot.child("timestamp").getValue().toString()))) ,
-                            snapshot.getKey());
+                            snapshot.getKey(),
+                            snapshot.child("category").getValue().toString(),
+                            snapshot.child("confidence").getValue().toString());
                     postsList.add(position, userModel);
                     MyRecyclerAdapter.this.notifyItemRemoved(position);
                     r.scrollToPosition(position);
@@ -185,6 +193,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                 holder.email_v.setText("Email:  " + dataSnapshot.child("email").getValue().toString());
                 holder.phone_v.setText("Phone Num:  " + dataSnapshot.child("phone").getValue().toString());
                 holder.date_v.setText("Date Created: "+u.date);
+                holder.cat_v.setText("Category: "+u.category);
+                holder.conf_v.setText("Confidence Level: "+u.confidence);
             }
 
             @Override
@@ -336,6 +346,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         public ImageView imageView;
         public  ImageView likeBtn;
         public TextView likeCount;
+        public TextView cat_v;
+        public TextView conf_v;
         DatabaseReference uref;
         ValueEventListener urefListener;
 
@@ -354,6 +366,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
             imageView=v.findViewById(R.id.postImg);
             likeBtn=v.findViewById(R.id.likeBtn);
             likeCount=v.findViewById(R.id.likeCount);
+            cat_v=v.findViewById(R.id.category_text);
+            conf_v=v.findViewById(R.id.confidence_text);
         }
     }
 
