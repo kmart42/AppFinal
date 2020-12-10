@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity
 {
 
     private ImageView logo;
-    private static int splashTimeOut=5000;
+    private static int splashTimeOut=3000;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
