@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:orientation="vertical"
+        android:background="@color/GhostWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="3">
@@ -30,6 +31,10 @@
         </ImageView>
         <TextView
             android:id="@+id/fname_view"
+            android:fontFamily="@font/rageitalic"
+            android:textSize="22sp"
+            android:textColor="@color/HotPink"
+            android:textStyle="bold"
             android:background="@color/PaleTurquoise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,24 +42,34 @@
         </TextView>
         <TextView
             android:id="@+id/email_view"
+            android:fontFamily="@font/rageitalic"
+            android:textSize="22sp"
+            android:textColor="@color/HotPink"
+            android:textStyle="bold"
             android:background="@color/PaleTurquoise"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
         </TextView>
         <TextView
         android:id="@+id/phone_view"
-            android:background="@color/PaleTurquoise"
+        android:fontFamily="@font/rageitalic"
+        android:textSize="22sp"
+        android:textColor="@color/HotPink"
+        android:textStyle="bold"
+        android:background="@color/PaleTurquoise"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
         </TextView>
         <TextView
             android:id="@+id/date_view"
+            android:fontFamily="@font/rageitalic"
+            android:textSize="22sp"
+            android:textColor="@color/HotPink"
+            android:textStyle="bold"
             android:background="@color/PaleTurquoise"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
+
         </TextView>
         <TextView
             android:id="@+id/description"
