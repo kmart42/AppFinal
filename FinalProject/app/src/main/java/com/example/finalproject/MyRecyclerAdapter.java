@@ -283,6 +283,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         });
 
         holder.description_v.setText(u.description);
+        holder.cat_v.setText(u.category);
+        holder.conf_v.setText(u.confidence);
         holder.imageView.setOnClickListener(new View.OnClickListener()
         {
 
