@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Location;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +16,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,12 +24,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
+import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.label.ImageLabel;
+import com.google.mlkit.vision.label.ImageLabeler;
+import com.google.mlkit.vision.label.ImageLabeling;
+import com.google.mlkit.vision.label.defaults.ImageLabelerOptions;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -45,12 +49,16 @@ public class PhotoPreview extends AppCompatActivity
         public Object timestamp;
         public String description;
         public int likeCount = 0;
+        public String category;
+        public float confidence;
         public Map<String, Boolean> likes = new HashMap<>();
-        public Post(String uid, String url, String description)
+        public Post(String uid, String url, String description, String category, float confidence)
         {
             this.uid=uid;
             this.url=url;
             this.description=description;
+            this.category=category;
+            this.confidence=confidence;
             this.timestamp= ServerValue.TIMESTAMP; }
         public Object getTimestamp(){
             return timestamp;
@@ -62,6 +70,8 @@ public class PhotoPreview extends AppCompatActivity
     }
     Uri uri;
     EditText description;
+    String category;
+    float confidence;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
@@ -95,10 +105,14 @@ public class PhotoPreview extends AppCompatActivity
         }
     }
 
-    private void uploadImage(){
+    private void uploadImage() throws InterruptedException {
         FirebaseStorage storage= FirebaseStorage.getInstance();
         final String fileNameInStorage= UUID.randomUUID().toString(); String path="images/"+ fileNameInStorage+".jpg";
         final StorageReference imageRef=storage.getReference(path);
+        category = classifyTry(this, uri);
+        System.out.println(category);
+        confidence = confTry(this, uri);
+        System.out.println(confidence);
         imageRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -106,7 +120,7 @@ public class PhotoPreview extends AppCompatActivity
                         final FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference postsRef = database.getReference("Posts");
                         DatabaseReference newPostRef = postsRef.push();
-                        newPostRef.setValue(new Post(currentUser.getUid(),uri.toString(),description.getText().toString()))
+                        newPostRef.setValue(new Post(currentUser.getUid(),uri.toString(),description.getText().toString(), category, confidence))
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override public void onSuccess(Void aVoid) {
                                         Toast.makeText(PhotoPreview.this, "Success", Toast.LENGTH_SHORT).show();
@@ -125,10 +139,65 @@ public class PhotoPreview extends AppCompatActivity
             }
         });
 
-
     }
-    public void Publish(View view)
-    {
+
+    public String classifyTry(Context context, final Uri uri) {
+        InputImage image = null;
+        ImageLabeler labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS);
+        try {
+            image = InputImage.fromFilePath(context, uri);
+        } catch (
+                IOException e) {
+            e.printStackTrace();
+        }
+        labeler.process(image)
+                .addOnSuccessListener(new OnSuccessListener<List<ImageLabel>>() {
+                    @Override
+                    public void onSuccess(List<ImageLabel> labels) {
+                        System.out.println("hereeee");
+                        category = labels.get(0).getText();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Task failed with an exception
+                        // ...
+                    }
+                });
+        return category;
+    }
+
+
+    public float confTry(Context context, final Uri uri) {
+        InputImage image = null;
+        ImageLabeler labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS);
+        try {
+            image = InputImage.fromFilePath(context, uri);
+        } catch (
+                IOException e) {
+            e.printStackTrace();
+        }
+        labeler.process(image)
+                .addOnSuccessListener(new OnSuccessListener<List<ImageLabel>>() {
+                    @Override
+                    public void onSuccess(List<ImageLabel> labels) {
+                        confidence = labels.get(0).getConfidence();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Task failed with an exception
+                        // ...
+                    }
+                });
+        return confidence;
+    }
+
+
+
+    public void Publish(View view) throws InterruptedException {
         uploadImage();
         finish();
     }

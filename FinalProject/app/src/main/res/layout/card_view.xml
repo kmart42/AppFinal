@@ -80,6 +80,16 @@
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/PaleTurquoise"
+            android:id="@+id/category_text"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/PaleTurquoise"
+            android:id="@+id/confidence_text"/>
         <View
             android:background="@color/HotPink"
             android:layout_width="match_parent"

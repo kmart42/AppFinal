@@ -108,9 +108,9 @@ public class HomeActivity extends AppCompatActivity
         btn_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Activity 2!", Toast.LENGTH_SHORT).show();
-//                Intent intent2 = new Intent(v.getContext(), SlideActivity.class);
-//                startActivity(intent2);
+//                Toast.makeText(v.getContext(), "Activity 2!", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(v.getContext(), CategoryView.class);
+                startActivity(intent2);
             }
         });
         ImageButton btn_master = (ImageButton) findViewById(R.id.master_button);
