@@ -25,7 +25,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class CategoryView extends AppCompatActivity {
+public class CategoryView extends AppCompatActivity
+{
 
     TextView button_cat;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -55,7 +56,9 @@ public class CategoryView extends AppCompatActivity {
                 }
             }
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
+
             }
         });
 
@@ -77,12 +80,14 @@ public class CategoryView extends AppCompatActivity {
         Query selected_cat = allPostsRef.child("category").equalTo(cat_check);
         selected_cat.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
                 System.out.println(snapshot.getValue());
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error)
+            {
                 Log.e("Realtime", "onCancelled", error.toException());
             }
         });

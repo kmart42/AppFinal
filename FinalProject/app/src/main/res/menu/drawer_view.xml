@@ -4,6 +4,7 @@
         <item
             android:id="@+id/nav_first_fragment"
             android:iconTint="@color/colorAccent"
+
             android:icon="@drawable/iconme"
             android:title="About Me" />
         <item

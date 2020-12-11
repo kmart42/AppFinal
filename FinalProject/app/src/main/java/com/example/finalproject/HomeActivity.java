@@ -153,7 +153,8 @@ public class HomeActivity extends AppCompatActivity
                 });
     }
 
-    public void selectDrawerItem(MenuItem menuItem) {
+    public void selectDrawerItem(MenuItem menuItem)
+    {
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
                 Intent intent1=new Intent(this, MainActivity.class);
@@ -167,8 +168,8 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_third_fragment:
                 Toast.makeText(this, "Activity 3! Again!", Toast.LENGTH_SHORT).show();
-//                Intent intent3=new Intent(this, MasterActivity.class);
-//                startActivity(intent3);
+                startActivity(new Intent(HomeActivity.this, SendNotification.class));
+                finish();
                 break;
             default:
                 Intent intent4=new Intent(this, MainActivity.class);
