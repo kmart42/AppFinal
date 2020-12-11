@@ -72,8 +72,8 @@ public class SendNotification extends AppCompatActivity
         try {
             json.put("to","/topics/"+"news");
             JSONObject notificationObj = new JSONObject();
-            notificationObj.put("title","any title");
-            notificationObj.put("body","any body");
+            notificationObj.put("title","KR651");
+            notificationObj.put("body","New Upload!");
 
             JSONObject extraData = new JSONObject();
             extraData.put("brandId","puma");
