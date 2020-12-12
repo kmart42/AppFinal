@@ -98,6 +98,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                         dataSnapshot.child("category").getValue().toString(),
                         dataSnapshot.child("confidence").getValue().toString());
                 postsList.add(userModel);
+                CategoryCount.categories.add(dataSnapshot.child("category").toString());
                 MyRecyclerAdapter.this.notifyItemInserted(postsList.size()-1);
                 r.scrollToPosition(postsList.size()-1);
             }

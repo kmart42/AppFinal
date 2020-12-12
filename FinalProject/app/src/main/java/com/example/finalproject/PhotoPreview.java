@@ -110,9 +110,7 @@ public class PhotoPreview extends AppCompatActivity
         final String fileNameInStorage= UUID.randomUUID().toString(); String path="images/"+ fileNameInStorage+".jpg";
         final StorageReference imageRef=storage.getReference(path);
         category = classifyTry(this, uri);
-        System.out.println(category);
         confidence = confTry(this, uri);
-        System.out.println(confidence);
         imageRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -154,7 +152,6 @@ public class PhotoPreview extends AppCompatActivity
                 .addOnSuccessListener(new OnSuccessListener<List<ImageLabel>>() {
                     @Override
                     public void onSuccess(List<ImageLabel> labels) {
-                        System.out.println("hereeee");
                         category = labels.get(0).getText();
                     }
                 })
