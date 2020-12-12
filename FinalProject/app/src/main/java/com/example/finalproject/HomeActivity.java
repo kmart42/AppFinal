@@ -50,20 +50,6 @@ public class HomeActivity extends AppCompatActivity
     private MyRecyclerAdapter myRecyclerAdapter;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -117,9 +103,9 @@ public class HomeActivity extends AppCompatActivity
         btn_master.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Activity 3!", Toast.LENGTH_SHORT).show();
-//                Intent intent3 = new Intent(v.getContext(), MasterActivity.class);
-//                startActivity(intent3);
+//                Toast.makeText(v.getContext(), "Activity 3!", Toast.LENGTH_SHORT).show();
+                Intent intent3 = new Intent(v.getContext(), UserView.class);
+                startActivity(intent3);
             }
         });
           // Initialize Firebase Auth

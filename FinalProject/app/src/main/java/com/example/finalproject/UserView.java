@@ -14,20 +14,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-public class CategoryView extends AppCompatActivity {
+public class UserView extends AppCompatActivity {
     SimpleDateFormat localDateFormat= new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     public class MiniPost{
         public String postKey;
@@ -52,7 +44,7 @@ public class CategoryView extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference allPostsRef = database.getReference("Posts");
     private CustomAdapter customAdapter;
-    private PostAdapter postAdapter;
+    private UserAdapter postAdapter;
     private String[] category_list;
     private String[] sub_list;
     private String[] out;
@@ -64,13 +56,14 @@ public class CategoryView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_home);
-        category_list = new String[CategoryCount.categories.size() + 1];
+        category_list = new String[UserCount.users.size() + 1];
         allPostsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int i = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String tmp = snapshot.child("category").getValue().toString();;
+                    String tmp = snapshot.child("uid").getValue().toString();
+                    System.out.println(tmp);
                     for(String s : category_list){
                         if(tmp.equals(s)){
                             break;
@@ -78,7 +71,7 @@ public class CategoryView extends AppCompatActivity {
                             category_list[i] = tmp;
                         }
                     }
-                    if(i<CategoryCount.categories.size()) {
+                    if(i<UserCount.users.size()) {
                         i++;
                     }
                 }
@@ -135,9 +128,9 @@ public class CategoryView extends AppCompatActivity {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                CategoryPost.posts.clear();
+                UserPost.posts.clear();
                 for(DataSnapshot ds : snapshot.getChildren()){
-                    String tmp = ds.child("category").getValue().toString();
+                    String tmp = ds.child("uid").getValue().toString();
                     if(cat_check.equals(tmp)) {
                         MiniPost userModel=new MiniPost(ds.child("uid").getValue().toString(),
                                 ds.child("description").getValue().toString(),
@@ -146,7 +139,7 @@ public class CategoryView extends AppCompatActivity {
                                 ds.getKey(),
                                 ds.child("category").getValue().toString(),
                                 ds.child("confidence").getValue().toString());
-                        CategoryPost.posts.add(userModel);
+                        UserPost.posts.add(userModel);
 
                         i[0]++;
                     }
@@ -163,10 +156,10 @@ public class CategoryView extends AppCompatActivity {
         allPostsRef.addListenerForSingleValueEvent(valueEventListener);
         RecyclerView recyclerView=findViewById(R.id.recycler_cat);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         layoutManager.scrollToPosition(0);
         recyclerView.setLayoutManager(layoutManager);
-        postAdapter=new PostAdapter(CategoryPost.posts);
+        postAdapter=new UserAdapter(UserPost.posts);
         recyclerView.setAdapter(postAdapter);
 
     }

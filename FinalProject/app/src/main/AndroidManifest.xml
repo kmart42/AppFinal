@@ -31,6 +31,7 @@
         </activity>
         <activity android:name=".SignupLogin" />
         <activity android:name=".CategoryView" />
+        <activity android:name=".UserView" />
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
