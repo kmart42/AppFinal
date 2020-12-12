@@ -18,6 +18,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import static com.example.finalproject.UserList.user_list;
 
 public class UserView extends AppCompatActivity {
     SimpleDateFormat localDateFormat= new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -43,9 +46,10 @@ public class UserView extends AppCompatActivity {
     TextView button_cat;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference allPostsRef = database.getReference("Posts");
+    DatabaseReference userRef = database.getReference("Users");
     private CustomAdapter customAdapter;
     private UserAdapter postAdapter;
-    private String[] category_list;
+//    private String[] category_list;
     private String[] sub_list;
     private String[] out;
     private ArrayList<String> cat_out;
@@ -55,20 +59,21 @@ public class UserView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.category_home);
-        category_list = new String[UserCount.users.size() + 1];
+        setContentView(R.layout.user_home);
+        user_list = new String[UserCount.users.size() + 1];
         allPostsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int i = 0;
+//                final String[] name = new String[1];
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String tmp = snapshot.child("uid").getValue().toString();
-                    System.out.println(tmp);
-                    for(String s : category_list){
+                    final String tmp = snapshot.child("uid").getValue().toString();
+                    for(String s : user_list){
                         if(tmp.equals(s)){
                             break;
                         }else{
-                            category_list[i] = tmp;
+                            user_list[i] = tmp;
+
                         }
                     }
                     if(i<UserCount.users.size()) {
@@ -105,10 +110,10 @@ public class UserView extends AppCompatActivity {
 
         RecyclerView recyclerView=findViewById(R.id.recycler_labels);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
         layoutManager.scrollToPosition(0);
         recyclerView.setLayoutManager(layoutManager);
-        customAdapter=new CustomAdapter(category_list);
+        customAdapter=new CustomAdapter(user_list);
         recyclerView.setAdapter(customAdapter);
 
 
@@ -130,8 +135,24 @@ public class UserView extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserPost.posts.clear();
                 for(DataSnapshot ds : snapshot.getChildren()){
-                    String tmp = ds.child("uid").getValue().toString();
-                    if(cat_check.equals(tmp)) {
+                    final String id = ds.child("uid").getValue().toString();
+//                    String name = ds.getRef().child("Users").child(id).child("displayname").getKey().toString();
+                    final String[] name = new String[1];
+                    userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            name[0] = snapshot.child(id).child("displayname").getValue().toString();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+
+                            System.out.println(name[0]);
+                    if(cat_check.equals(id)) {
                         MiniPost userModel=new MiniPost(ds.child("uid").getValue().toString(),
                                 ds.child("description").getValue().toString(),
                                 ds.child("url").getValue().toString(),
@@ -154,6 +175,7 @@ public class UserView extends AppCompatActivity {
 //        sub_list = CategoryPost.posts
 //                .toArray(new String[0]);
         allPostsRef.addListenerForSingleValueEvent(valueEventListener);
+//        userRef.addListenerForSingleValueEvent(valueEventListener);
         RecyclerView recyclerView=findViewById(R.id.recycler_cat);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);
