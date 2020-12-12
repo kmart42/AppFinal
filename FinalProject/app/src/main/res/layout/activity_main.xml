@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/finallabtext"
-        android:textSize="32sp"
+        android:textSize="40dp"
         android:fontFamily="@font/broadwayd"
         app:layout_constraintVertical_bias=".4"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textColor="@color/DodgerBlue">
+        android:textColor="@color/HotPink">
 
     </TextView>
 

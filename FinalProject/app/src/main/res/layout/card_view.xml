@@ -74,6 +74,10 @@
         <TextView
             android:id="@+id/description"
             android:background="@color/PaleTurquoise"
+            android:fontFamily="@font/rageitalic"
+            android:textSize="22sp"
+            android:textColor="@color/HotPink"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
@@ -108,7 +112,7 @@
 
             </ImageView>
             <TextView
-                android:text="  0 likes"
+                android:text=" 0 likes"
                 android:background="@color/PaleTurquoise"
                 android:id="@+id/likeCount"
                 android:layout_width="wrap_content"

@@ -99,6 +99,7 @@ public class EditPost extends AppCompatActivity
     public void Publish(View view)
     {
         finish();
+
     }
 
 

@@ -50,20 +50,6 @@ public class HomeActivity extends AppCompatActivity
     private MyRecyclerAdapter myRecyclerAdapter;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -117,9 +103,9 @@ public class HomeActivity extends AppCompatActivity
         btn_master.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Activity 3!", Toast.LENGTH_SHORT).show();
-//                Intent intent3 = new Intent(v.getContext(), MasterActivity.class);
-//                startActivity(intent3);
+//                Toast.makeText(v.getContext(), "Activity 3!", Toast.LENGTH_SHORT).show();
+                Intent intent3 = new Intent(v.getContext(), UserView.class);
+                startActivity(intent3);
             }
         });
           // Initialize Firebase Auth
@@ -153,7 +139,8 @@ public class HomeActivity extends AppCompatActivity
                 });
     }
 
-    public void selectDrawerItem(MenuItem menuItem) {
+    public void selectDrawerItem(MenuItem menuItem)
+    {
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
                 Intent intent1=new Intent(this, MainActivity.class);
@@ -167,8 +154,8 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_third_fragment:
                 Toast.makeText(this, "Activity 3! Again!", Toast.LENGTH_SHORT).show();
-//                Intent intent3=new Intent(this, MasterActivity.class);
-//                startActivity(intent3);
+                startActivity(new Intent(HomeActivity.this, SendNotification.class));
+                finish();
                 break;
             default:
                 Intent intent4=new Intent(this, MainActivity.class);
