@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
@@ -29,6 +31,11 @@ public class SignupLogin extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     Button signupBtn;
+
+   //background
+    private ConstraintLayout constraintLayout;
+    private AnimationDrawable animationDrawable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -41,6 +48,12 @@ public class SignupLogin extends AppCompatActivity {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(ContextCompat.getColor(SignupLogin.this, R.color.HotPink));
 
+
+        //background
+        constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+        animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(3000);
+        animationDrawable.setExitFadeDuration(2000);
 
 
         email=findViewById(R.id.emailText);

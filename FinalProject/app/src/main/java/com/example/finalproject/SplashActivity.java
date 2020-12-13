@@ -15,39 +15,46 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 
-public class SplashActivity extends AppCompatActivity
-{
 
-    private ImageView logo;
-    private static int splashTimeOut=3000;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Bundle;
+
+import android.widget.VideoView;
+
+public class SplashActivity extends AppCompatActivity {
+
+    VideoView videoView;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash3);
-        logo=(ImageView)findViewById(R.id.logo);
-
+        videoView = (VideoView) findViewById(R.id.videoView);
 
         //COLOR SCHEMES
         Window window = SplashActivity.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(SplashActivity.this, R.color.HotPink));
+        window.setStatusBarColor(ContextCompat.getColor(SplashActivity.this, R.color.Black));
 
+        Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.kr651);
+        videoView.setVideoURI(video);
 
-        new Handler().postDelayed(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                Intent i = new Intent(SplashActivity.this,MainActivity.class);
-                startActivity(i);
-                finish();
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                startNextActivity();
             }
-        },splashTimeOut);
+        });
 
-        Animation myanim = AnimationUtils.loadAnimation(this,R.anim.mysplashanimation);
-        logo.startAnimation(myanim);
+        videoView.start();
+    }
+
+    private void startNextActivity() {
+        if (isFinishing())
+            return;
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

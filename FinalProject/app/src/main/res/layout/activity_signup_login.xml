@@ -6,11 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="10dp"
-    android:backgroundTint="@color/PaleTurquoise"
-    android:outlineAmbientShadowColor="@color/colorAccent"
+    android:id = "@+id/constraintLayout"
     android:paddingLeft="30dp"
     android:padding="@dimen/cardview_compat_inset_shadow"
-    android:background="@color/AliceBlue"
+    android:background="@drawable/gradient_animiation"
     android:paddingRight="30dp"
     tools:context=".SignupLogin">
 
@@ -19,7 +18,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/ic_app_logo"
+        android:src="@drawable/ic_pinklauncher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -38,9 +37,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorTextColor="@color/Black"
-            android:hint="Email">
+            android:hint="Email"
+            app:hintTextColor="@color/Black"            >
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailText"
+                android:textSize="20sp"
                 android:fontFamily="@font/rageitalic"
                 android:textColor="@color/Black"
                 android:layout_width="match_parent"
@@ -49,19 +51,22 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:hint="Password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordText"
                 android:fontFamily="@font/rageitalic"
-                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textColor="@color/Black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/displayNameLayout"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Display Name">
@@ -69,7 +74,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/displayNameText"
                 android:fontFamily="@font/rageitalic"
-                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textColor="@color/Black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -77,6 +83,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneNumberLayout"
             android:fontFamily="@font/rageitalic"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -84,9 +91,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneNumberText"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/Black"
                 android:fontFamily="@font/rageitalic"
-
+                android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -95,7 +102,7 @@
             android:id="@+id/singupBtn"
             android:text="SIGNUP"
             android:fontFamily="@font/broadwayd"
-            android:textColor="@color/Aqua"
+            android:textColor="@color/HotPink"
             android:textSize="20sp"
             android:onClick="Signup"
             android:layout_width="match_parent"
