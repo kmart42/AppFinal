@@ -49,11 +49,11 @@ public class SignupLogin extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(SignupLogin.this, R.color.HotPink));
 
 
-        //background
-        constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
-        animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(3000);
-        animationDrawable.setExitFadeDuration(2000);
+//        //background
+//        constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+//        animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+//        animationDrawable.setEnterFadeDuration(3000);
+//        animationDrawable.setExitFadeDuration(2000);
 
 
         email=findViewById(R.id.emailText);

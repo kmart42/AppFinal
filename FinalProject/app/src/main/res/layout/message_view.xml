@@ -4,11 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_animiation"
     tools:context=".PostMessage">
 
         <EditText
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/enter_text"
+            android:textColor="@color/HotPink"
+            android:shadowColor="@color/Black"
+            android:fontFamily="@font/broadwayd"
+            android:shadowRadius="10"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:hint="Enter new message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,12 +34,12 @@
             android:id="@+id/send_button"
             android:layout_gravity="left"
             android:onClick="SendMessage"
+            android:shadowColor="@color/HotPink"
             android:fontFamily="@font/broadwayd"
-            android:textColor="@color/Aqua"
-            android:background="@drawable/buttonshape"
-            android:shadowDx="0"
-            android:shadowDy="-5"
-            android:shadowRadius="25"/>
+            android:shadowRadius="20"
+            android:textSize="18dp"
+            android:textColor="@color/KR651"
+            android:background="@drawable/buttonshape"/>
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

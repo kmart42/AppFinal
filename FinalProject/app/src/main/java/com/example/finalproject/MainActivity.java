@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //background
-        constraintLayout = findViewById(R.id.constraintLayout);
-        animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(3000);
-        animationDrawable.setExitFadeDuration(2000);
+//        constraintLayout = findViewById(R.id.constraintLayout);
+//        animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+//        animationDrawable.setEnterFadeDuration(3000);
+//        animationDrawable.setExitFadeDuration(2000);
 
 
         //COLOR SCHEMES

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:background="@color/PaleTurquoise"
+    android:background="@drawable/gradient_drawable2"
     android:padding="15dp"
     tools:context=".PhotoPreview">
 
@@ -17,6 +17,7 @@
         android:background="@drawable/buttonshape"
         android:backgroundTint="@color/HotPink"
         android:id="@+id/buttton"
+        android:shadowColor="@color/PeachPuff"
         android:fontFamily="@font/broadwayd"
         android:onClick="Publish"
         android:shadowDx="0"
@@ -26,7 +27,8 @@
         android:text="Publish"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints">
 
     </Button>
 
@@ -38,6 +40,10 @@
         android:layout_marginTop="100dp"
         android:fontFamily="@font/rageitalic"
         android:hint="Description"
+        android:textSize="28sp"
+        android:shadowColor="@color/Black"
+        android:shadowRadius="10"
+        android:textColorHint="@color/HotPink"
         app:layout_constraintTop_toBottomOf="@id/buttton"
         tools:layout_editor_absoluteX="1dp" />
 

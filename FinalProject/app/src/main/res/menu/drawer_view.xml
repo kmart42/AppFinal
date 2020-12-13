@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_first_fragment"
-            android:iconTint="@color/colorAccent"
+
+            android:iconTint="@color/KR651"
 
             android:icon="@drawable/iconme"
             android:title="About Me" />
         <item
             android:id="@+id/nav_second_fragment"
-            android:iconTint="@color/colorAccent"
+            android:iconTint="@color/KR651"
             android:icon="@drawable/iconpager"
             android:title="View Pager" />
         <item
             android:id="@+id/nav_third_fragment"
-            android:iconTint="@color/colorAccent"
+            android:iconTint="@color/KR651"
             android:icon="@drawable/iconmaster"
             android:title="Master/Detail" />
     </group>
