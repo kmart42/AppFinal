@@ -43,12 +43,14 @@ public class UserView extends AppCompatActivity {
         }
     }
 
+    private String[] users = new String[4];
     TextView button_cat;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference allPostsRef = database.getReference("Posts");
     DatabaseReference userRef = database.getReference("Users");
     private CustomAdapter customAdapter;
     private UserAdapter postAdapter;
+    private int index;
 //    private String[] category_list;
     private String[] sub_list;
     private String[] out;
@@ -126,10 +128,26 @@ public class UserView extends AppCompatActivity {
 
 
     public void loadCategory(View view){
+        users[0] = "PzhTMSygqfbfvXYosSRpeKuEa1S2";
+        users[1] = "TaMS4zWZ3IagQkRd9SgbaahKYxq1";
+        users[2] = "cMV1IaqD2NQxBdwixDqAoErPxiI3";
+        users[3] = "xl2ADHQahFgYI6qLTnXNtgde0An1";
         final int[] i = {0};
 //        sub_list = new String[10];
         button_cat = view.findViewById(R.id.textView);
+        System.out.println(button_cat.getText().toString());
         final String cat_check = button_cat.getText().toString();
+        if (cat_check.equals("Kevin-1")){
+            index=1;
+        }else if(cat_check.equals("Ricardo")){
+            index=0;
+        }else if(cat_check.equals("Romo")){
+            index=2;
+        }
+        else if(cat_check.equals("ric2")){
+            index=3;
+        }
+
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -151,8 +169,10 @@ public class UserView extends AppCompatActivity {
                     });
 
 
-                            System.out.println(name[0]);
-                    if(cat_check.equals(id)) {
+//                            System.out.println(name[0]);
+//                    if(cat_check.equals(id)) {
+                    System.out.println(user_list[index]);
+                    if(user_list[index].equals(id)){
                         MiniPost userModel=new MiniPost(ds.child("uid").getValue().toString(),
                                 ds.child("description").getValue().toString(),
                                 ds.child("url").getValue().toString(),

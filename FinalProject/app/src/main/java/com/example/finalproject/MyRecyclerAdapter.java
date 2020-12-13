@@ -296,6 +296,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                 PopupMenu popupMenu = new PopupMenu(v.getContext(), holder.imageView, Gravity.END);
                 popupMenu.getMenu().add("Delete");
                 popupMenu.getMenu().addSubMenu("Modify");
+                popupMenu.getMenu().addSubMenu("Messenger");
                 final Context context = v.getContext();
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()
                 {
@@ -308,7 +309,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                             holder.uref.removeValue();
                             return false;
                         }
-                        else
+                        else if("Modify".equals(item.toString()))
                         {
 
                             Intent intent = new Intent(holder.imageView.getContext(),EditPost.class);
@@ -323,6 +324,13 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
 //                            intent.putExtra("description", u.description);
 //                            context.startActivity(intent);
 
+                            return false;
+                        }
+                        else{
+                            Intent intent=new Intent(holder.imageView.getContext(), PostMessage.class);
+                            intent.putExtra("postKey",u.postKey);
+                            intent.putExtra("description", u.description);
+                            holder.imageView.getContext().startActivity(intent);
                             return false;
                         }
                     }

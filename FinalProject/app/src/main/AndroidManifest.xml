@@ -30,6 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignupLogin" />
+        <activity android:name=".PostMessage" />
         <activity android:name=".CategoryView" />
         <activity android:name=".UserView" />
         <activity android:name=".HomeActivity">
