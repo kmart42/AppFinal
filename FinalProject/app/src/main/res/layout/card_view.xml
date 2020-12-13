@@ -18,13 +18,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:orientation="vertical"
-        android:background="@color/GhostWhite"
+        android:background="@color/PeachPuff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="3">
         <ImageView
             android:id="@+id/postImg"
-            android:background="@color/PaleTurquoise"
+            android:background="@drawable/gradient_drawable2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -32,10 +32,12 @@
         <TextView
             android:id="@+id/fname_view"
             android:fontFamily="@font/rageitalic"
-            android:textSize="22sp"
+            android:textSize="26sp"
             android:textColor="@color/HotPink"
+            android:shadowColor="@color/Black"
+            android:shadowRadius="10"
             android:textStyle="bold"
-            android:background="@color/PaleTurquoise"
+            android:background="@drawable/gradient_drawable2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
@@ -43,39 +45,47 @@
         <TextView
             android:id="@+id/email_view"
             android:fontFamily="@font/rageitalic"
-            android:textSize="22sp"
+            android:textSize="26sp"
+            android:shadowColor="@color/Black"
+            android:shadowRadius="10"
             android:textColor="@color/HotPink"
             android:textStyle="bold"
-            android:background="@color/PaleTurquoise"
+            android:background="@drawable/gradient_drawable2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
         <TextView
         android:id="@+id/phone_view"
         android:fontFamily="@font/rageitalic"
-        android:textSize="22sp"
+        android:textSize="26sp"
+        android:shadowColor="@color/Black"
+        android:shadowRadius="10"
         android:textColor="@color/HotPink"
         android:textStyle="bold"
-        android:background="@color/PaleTurquoise"
+            android:background="@drawable/gradient_drawable2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         </TextView>
         <TextView
             android:id="@+id/date_view"
             android:fontFamily="@font/rageitalic"
-            android:textSize="22sp"
+            android:textSize="26sp"
+            android:shadowColor="@color/Black"
+            android:shadowRadius="10"
             android:textColor="@color/HotPink"
             android:textStyle="bold"
-            android:background="@color/PaleTurquoise"
+            android:background="@drawable/gradient_drawable2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </TextView>
         <TextView
             android:id="@+id/description"
-            android:background="@color/PaleTurquoise"
+            android:background="@drawable/gradient_drawable2"
             android:fontFamily="@font/rageitalic"
-            android:textSize="22sp"
+            android:textSize="26sp"
+            android:shadowColor="@color/Black"
+            android:shadowRadius="10"
             android:textColor="@color/HotPink"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -83,38 +93,49 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PaleTurquoise"
+            android:textColor="@color/HotPink"
+            android:shadowColor="@color/Black"
+            android:shadowRadius="10"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:background="@drawable/gradient_drawable2"
             android:id="@+id/category_text"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PaleTurquoise"
+            android:textColor="@color/HotPink"
+            android:shadowColor="@color/Black"
+            android:shadowRadius="10"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:background="@drawable/gradient_drawable2"
             android:id="@+id/confidence_text"/>
         <View
             android:background="@color/HotPink"
             android:layout_width="match_parent"
-            android:layout_height="2dp">
+            android:layout_height="5dp">
 
         </View>
         <LinearLayout
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="@color/PaleTurquoise"
+            android:background="@color/KR651"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
                 android:src="@drawable/like_disabled"
                 android:id="@+id/likeBtn"
-                android:background="@color/PaleTurquoise"
+
                 android:layout_width="15dp"
                 android:layout_height="15dp">
 
             </ImageView>
             <TextView
                 android:text=" 0 likes"
-                android:background="@color/PaleTurquoise"
+                android:background="@color/KR651"
                 android:id="@+id/likeCount"
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 

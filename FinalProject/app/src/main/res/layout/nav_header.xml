@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/splashBackground"
+    android:background="@drawable/gradient_drawable3"
     android:layout_height="192dp"
     android:padding="16dp"
     android:fadingEdge="horizontal"
-    android:backgroundTint="@color/Aqua"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical"
     android:gravity="bottom">
@@ -13,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Menu Select"
-        android:backgroundTint="@color/Blue"
-        android:textSize="25sp"
+        android:textSize="40dp"
+        android:fontFamily="@font/broadwayd"
+        android:shadowColor="@color/Black"
+        android:shadowRadius="10"
         android:textStyle="bold"
-
-        android:textColor="@color/DeepPink"
+        android:textColor="@color/HotPink"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 

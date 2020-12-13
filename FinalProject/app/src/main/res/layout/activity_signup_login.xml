@@ -9,7 +9,7 @@
     android:id = "@+id/constraintLayout"
     android:paddingLeft="30dp"
     android:padding="@dimen/cardview_compat_inset_shadow"
-    android:background="@drawable/gradient_animiation"
+    android:background="@drawable/drawable_red_gradient"
     android:paddingRight="30dp"
     tools:context=".SignupLogin">
 
@@ -18,7 +18,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/ic_pinklauncher"
+        android:src="@drawable/ic_miaimi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -104,30 +104,27 @@
             android:fontFamily="@font/broadwayd"
             android:textColor="@color/HotPink"
             android:textSize="20sp"
+            android:textStyle="bold"
+            android:shadowColor="@color/KR651"
             android:onClick="Signup"
             android:layout_width="match_parent"
             android:layout_height="49dp"
             android:background="@drawable/buttonshape"
-
-            android:shadowDx="0"
-            android:shadowDy="-5"
-            android:shadowRadius="25" >
+            android:shadowRadius="10" >
 
         </Button>
         <Button
+            android:shadowColor="@color/PeachPuff"
+            android:shadowRadius="10"
             android:layout_marginTop="5dp"
             android:text="LOGIN"
             android:fontFamily="@font/broadwayd"
-            android:textColor="@color/HotPink"
+            android:textColor="@color/KR651"
             android:textSize="20sp"
             android:onClick="Login"
             android:layout_width="match_parent"
             android:layout_height="49dp"
-            android:background="@drawable/buttonshape"
-
-            android:shadowDx="0"
-            android:shadowDy="-5"
-            android:shadowRadius="25" >
+            android:background="@drawable/buttonshape">
 
         </Button>
         <LinearLayout
@@ -142,12 +139,14 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="2dp"
                 android:layout_weight="1"
+                android:shadowColor="@color/PeachPuff"
+                android:shadowRadius="10"
                 android:background="@color/Black"
                 android:fontFamily="@font/broadwayd"
                 android:onClick="ResetPassword"
                 android:text="Reset   Password"
                 android:textStyle="bold"
-                android:textColor="@color/HotPink"
+                android:textColor="@color/KR651"
                 android:textSize="16sp">
 
             </Button>
@@ -156,7 +155,8 @@
                 android:layout_marginLeft="2dp"
                 android:text="Resend Email Verification"
                 android:textColor="@color/HotPink"
-                android:shadowColor="@color/colorAccent"
+                android:shadowColor="@color/PeachPuff"
+                android:shadowRadius="10"
                 android:background="@color/Black"
                 android:textSize="14sp"
                 android:fontFamily="@font/broadwayd"

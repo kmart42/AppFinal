@@ -39,7 +39,7 @@ public class SplashActivity extends AppCompatActivity {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(ContextCompat.getColor(SplashActivity.this, R.color.Black));
 
-        Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.kr651);
+        Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash);
         videoView.setVideoURI(video);
 
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
