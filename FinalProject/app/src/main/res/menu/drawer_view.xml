@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
+
     xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
@@ -7,8 +8,9 @@
 
             android:iconTint="@color/KR651"
 
-            android:icon="@drawable/iconme"
-            android:title="About Me" />
+            android:icon="@drawable/ic_action_account_circle"
+
+            android:title="User" />
         <item
             android:id="@+id/nav_second_fragment"
             android:iconTint="@color/KR651"
@@ -18,6 +20,6 @@
             android:id="@+id/nav_third_fragment"
             android:iconTint="@color/KR651"
             android:icon="@drawable/iconmaster"
-            android:title="Master/Detail" />
+            android:title="Test Notification" />
     </group>
 </menu>

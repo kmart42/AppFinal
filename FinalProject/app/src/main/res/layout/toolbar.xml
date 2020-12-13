@@ -29,18 +29,18 @@
         android:layout_height="45dp"
         android:background="@null"
         android:id="@+id/about_button"
-        android:src="@drawable/ic_pinkpeep"/>
+        android:src="@drawable/ic_action_account_circle"/>
     <ImageButton
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:background="@null"
         android:id="@+id/view_button"
-        android:src="@drawable/ic_pinkpic"/>
+        android:src="@drawable/ic_action_image"/>
     <ImageButton
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:background="@null"
         android:id="@+id/master_button"
-        android:src="@drawable/ic_action_people_outline"/>
+        android:src="@drawable/ic_action_all_inclusive"/>
     </LinearLayout>
 </androidx.appcompat.widget.Toolbar>
