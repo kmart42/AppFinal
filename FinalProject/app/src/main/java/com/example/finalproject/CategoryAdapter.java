@@ -15,9 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import static com.example.finalproject.UserList.user_list;
-
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
     private String[] localDataSet;
 
@@ -46,7 +44,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public CustomAdapter(String[] dataSet) {
+    public CategoryAdapter(String[] dataSet) {
         localDataSet = dataSet;
     }
 
@@ -55,7 +53,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.text_row_item2, viewGroup, false);
+                .inflate(R.layout.text_row_item, viewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -66,16 +64,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-//        final String[] name = new String[1];
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference userRef = database.getReference("Posts");
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 viewHolder.getTextView().setText(localDataSet[position]);
-//                System.out.println(snapshot.child(localDataSet[position]).child("displayname").getValue().toString());
-//                name[0] = (String)snapshot.child(localDataSet[position]).child("displayname").getValue();
-//                viewHolder.getTextView().setText(name[0]);
             }
 
             @Override

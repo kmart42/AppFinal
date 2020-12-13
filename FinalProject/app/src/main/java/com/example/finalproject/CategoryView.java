@@ -51,7 +51,7 @@ public class CategoryView extends AppCompatActivity {
     TextView button_cat;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference allPostsRef = database.getReference("Posts");
-    private CustomAdapter customAdapter;
+    private CategoryAdapter categoryAdapter;
     private PostAdapter postAdapter;
     private String[] category_list;
     private String[] sub_list;
@@ -115,8 +115,8 @@ public class CategoryView extends AppCompatActivity {
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         layoutManager.scrollToPosition(0);
         recyclerView.setLayoutManager(layoutManager);
-        customAdapter=new CustomAdapter(category_list);
-        recyclerView.setAdapter(customAdapter);
+        categoryAdapter=new CategoryAdapter(category_list);
+        recyclerView.setAdapter(categoryAdapter);
 
 
     }

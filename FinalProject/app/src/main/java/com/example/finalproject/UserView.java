@@ -49,6 +49,7 @@ public class UserView extends AppCompatActivity {
     DatabaseReference allPostsRef = database.getReference("Posts");
     DatabaseReference userRef = database.getReference("Users");
     private CustomAdapter customAdapter;
+    private CategoryAdapter categoryAdapter;
     private UserAdapter postAdapter;
     private int index;
 //    private String[] category_list;
@@ -115,13 +116,15 @@ public class UserView extends AppCompatActivity {
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         layoutManager.scrollToPosition(0);
         recyclerView.setLayoutManager(layoutManager);
+//        categoryAdapter=new CategoryAdapter(category_list);
+//        recyclerView.setAdapter(categoryAdapter);
         customAdapter=new CustomAdapter(user_list);
         recyclerView.setAdapter(customAdapter);
 
 
     }
 
-    public void buttonClick(View view){
+    public void buttonClick2(View view){
 
         loadCategory(view);
     }
@@ -137,16 +140,16 @@ public class UserView extends AppCompatActivity {
         button_cat = view.findViewById(R.id.textView);
         System.out.println(button_cat.getText().toString());
         final String cat_check = button_cat.getText().toString();
-        if (cat_check.equals("Kevin-1")){
-            index=1;
-        }else if(cat_check.equals("Ricardo")){
-            index=0;
-        }else if(cat_check.equals("Romo")){
-            index=2;
-        }
-        else if(cat_check.equals("ric2")){
-            index=3;
-        }
+//        if (cat_check.equals("Kevin-1")){
+//            index=1;
+//        }else if(cat_check.equals("Ricardo")){
+//            index=0;
+//        }else if(cat_check.equals("Romo")){
+//            index=2;
+//        }
+//        else if(cat_check.equals("ric2")){
+//            index=3;
+//        }
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -170,9 +173,8 @@ public class UserView extends AppCompatActivity {
 
 
 //                            System.out.println(name[0]);
-//                    if(cat_check.equals(id)) {
-                    System.out.println(user_list[index]);
-                    if(user_list[index].equals(id)){
+                    if(cat_check.equals(id)) {
+//                    if(user_list[index].equals(id)){
                         MiniPost userModel=new MiniPost(ds.child("uid").getValue().toString(),
                                 ds.child("description").getValue().toString(),
                                 ds.child("url").getValue().toString(),
