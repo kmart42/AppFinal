@@ -41,6 +41,6 @@
         android:layout_height="45dp"
         android:background="@null"
         android:id="@+id/master_button"
-        android:src="@drawable/iconmaster"/>
+        android:src="@drawable/ic_action_people_outline"/>
     </LinearLayout>
 </androidx.appcompat.widget.Toolbar>
