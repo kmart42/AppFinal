@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder> {
@@ -69,7 +70,7 @@ public class UserAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.ViewHold
         final UserView.MiniPost u =postsList.get(position);
         holder.description_v.setText(u.description);
         holder.cat_v.setText(u.category);
-        holder.conf_v.setText(u.confidence);
+        holder.conf_v.setText(u.confidence );
         Picasso.get().load(u.url).into(holder.imageView);
     }
 

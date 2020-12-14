@@ -148,14 +148,12 @@ public class HomeActivity extends AppCompatActivity
 //                fragmentClass = MainActivity.class;
                 break;
             case R.id.nav_second_fragment:
-//                Intent intent2=new Intent(this, SlideActivity.class);
-//                startActivity(intent2);
-                Toast.makeText(this, "Activity 2! Again!", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(this, CategoryView.class);
+                startActivity(intent2);
                 break;
             case R.id.nav_third_fragment:
-                Toast.makeText(this, "Activity 3! Again!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(HomeActivity.this, SendNotification.class));
-                finish();
+                Intent intent3 = new Intent(this, UserView.class);
+                startActivity(intent3);
                 break;
             default:
                 Intent intent4=new Intent(this, MainActivity.class);
