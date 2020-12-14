@@ -18,7 +18,7 @@
         android:id="@+id/recycler_cat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="35dp"
+        android:paddingBottom="55dp"
         app:layout_constraintTop_toBottomOf="@id/recycler_labels"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

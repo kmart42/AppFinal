@@ -200,7 +200,7 @@ public class UserView extends AppCompatActivity {
 //        userRef.addListenerForSingleValueEvent(valueEventListener);
         RecyclerView recyclerView=findViewById(R.id.recycler_cat);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
         layoutManager.scrollToPosition(0);
         recyclerView.setLayoutManager(layoutManager);
         postAdapter=new UserAdapter(UserPost.posts);
